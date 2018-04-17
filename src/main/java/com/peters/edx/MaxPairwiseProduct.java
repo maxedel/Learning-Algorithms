@@ -19,16 +19,6 @@ public class MaxPairwiseProduct {
     }
 
     static long getMaxPairwiseProductFast(int[] numbers) {
-/*        long largestNumber = 0;
-        for (int number : numbers) {
-            if (number > largestNumber) largestNumber = number;
-        }
-
-        long secondLargestNumber = 0;
-        for (int number : numbers) {
-            if (number > secondLargestNumber && largestNumber != number) secondLargestNumber = number;
-        }
-        return largestNumber * secondLargestNumber;*/
         List<Long> list = Arrays.stream(numbers)
                 .sorted()
                 .mapToLong(s -> (long) s)
@@ -39,35 +29,11 @@ public class MaxPairwiseProduct {
 
     public static void main(String[] args) {
         FastScanner scanner = new FastScanner(System.in);
-//        int n = scanner.nextInt();
-//        int[] numbers = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            numbers[i] = scanner.nextInt();
-//        }
-//        double n = Math.random();
-//        for (int i = 0; i < n; i++) {
-//            nimbe
-//        }
-
-/*        while (true){
-            Random r = new Random();
-             int n = r.ints(0, 6).limit(1).findFirst().getAsInt();
-            int[] numbers = new int[n];
-            for (int i = 0; i < n; i++) {
-                numbers[i] = r.ints(0, (500 + 1)).limit(1).findFirst().getAsInt();
-            }
-            System.out.println("numbers = " + Arrays.toString(numbers));
-            int maxPairwiseProductSlow = getMaxPairwiseProductSlow(numbers);
-            long maxPairwiseProductFast = getMaxPairwiseProductFast(numbers);
-            System.out.println(maxPairwiseProductSlow + ", " + maxPairwiseProductFast + ", diif =" + (maxPairwiseProductSlow - maxPairwiseProductFast));
-            if (maxPairwiseProductFast == maxPairwiseProductSlow) System.out.println("OK");
-            else{
-                System.out.println("Wrong: " + maxPairwiseProductFast + " !=  " + maxPairwiseProductSlow);
-                return;
-            }
-        }*/
-        int[] numbers = {100000, 90000};
-        System.out.println(getMaxPairwiseProductSlow(numbers));
+        int n = scanner.nextInt();
+        int[] numbers = new int[n];
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
         System.out.println(getMaxPairwiseProductFast(numbers));
     }
 

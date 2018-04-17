@@ -21,9 +21,19 @@ public class FibonacciLastDigit {
     }
 
     public static int getFibonacciLastDigitFast(int n) {
-        if (n <= 1) return n;
+        if (n <= 1)
+            return n;
 
-        return ((getFibonacciLastDigitFast(n-1) + getFibonacciLastDigitFast(n -2)) % 10);
+        int previous = 0;
+        int current  = 1;
+
+        for (int i = 0; i < n - 1; ++i) {
+            int tmp_previous = previous;
+            previous = current;
+            current = (tmp_previous + current) % 10;
+        }
+
+        return current;
     }
 
     public static void main(String[] args) {
